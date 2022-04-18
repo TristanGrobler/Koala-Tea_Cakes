@@ -26,8 +26,8 @@ class ContactUs extends StatelessWidget {
 
     return Column(
       children: [
-        SizedBox(height: 20.0),
-        TitleWidget(title: 'Contact Us'),
+        const SizedBox(height: 20.0),
+        const TitleWidget(title: 'Contact Us'),
         Padding(
           padding: const EdgeInsets.only(bottom: 20.0),
           child: Row(
