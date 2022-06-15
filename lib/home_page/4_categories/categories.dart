@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ktc/0_resources/title_widget.dart';
-import 'package:ktc/4_categories/category_button.dart';
+
+import '../../category_list_page/0_category_screen.dart';
+import '../../resources/title_widget.dart';
+import 'category_button.dart';
 
 class Categories extends StatelessWidget {
   const Categories({Key? key}) : super(key: key);
@@ -14,7 +16,10 @@ class Categories extends StatelessWidget {
         CategoryButton(
           title: 'Cakes',
           image: 'images/02.jpg',
-          onTap: () {},
+          onTap: () {
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => CategoryScreen()));
+          },
         ),
         CategoryButton(
           title: 'Cup Cakes',

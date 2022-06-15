@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ktc/0_resources/title_widget.dart';
-import 'package:ktc/5_contact_us/contact_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../../resources/title_widget.dart';
+import 'contact_button.dart';
 import 'kofi_button.dart';
 
 class ContactUs extends StatelessWidget {

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ktc/0_resources/constants.dart';
 
 class CategoryButton extends StatelessWidget {
   CategoryButton(

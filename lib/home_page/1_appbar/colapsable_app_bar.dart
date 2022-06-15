@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import '../0_resources/constants.dart';
+import '../../resources/constants.dart';
 
 class CollapsableAppBar extends StatelessWidget {
   const CollapsableAppBar();

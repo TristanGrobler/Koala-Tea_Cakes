@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ktc/0_resources/constants.dart';
+import 'package:ktc/resources/constants.dart';
 
-class ContactButton extends StatelessWidget {
-  ContactButton({required this.icon, required this.width, required this.onTap});
-  IconData icon;
+class KofiButton extends StatelessWidget {
+  KofiButton({required this.width, required this.onTap});
   double width;
   Function() onTap;
 
@@ -32,10 +32,14 @@ class ContactButton extends StatelessWidget {
           width: getSize(width),
           height: getSize(width),
           child: Center(
-            child: FaIcon(
-              icon,
-              size: getSize(width) / 3 * 2,
-              color: kAccentColor,
+            child: Padding(
+              padding: EdgeInsets.all(width / 150),
+              child: SvgPicture.asset(
+                'images/kofi.svg',
+                fit: BoxFit.fitWidth,
+                width: getSize(width),
+                color: kAccentColor,
+              ),
             ),
           ),
         ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ktc/0_resources/constants.dart';
+
+import '../../resources/constants.dart';
 
 class AboutDescription extends StatelessWidget {
   const AboutDescription({Key? key}) : super(key: key);
