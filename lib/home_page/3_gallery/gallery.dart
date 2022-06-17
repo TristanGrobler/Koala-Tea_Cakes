@@ -1,6 +1,11 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:ktc/constants/k_colors.dart';
+import 'package:ktc/database/database_helper.dart';
+import 'package:ktc/models/m_feed_item.dart';
+import 'package:url_launcher/url_launcher.dart';
 
+import '../../constants/k_constants.dart';
 import '../../resources/title_widget.dart';
 
 class Gallery extends StatefulWidget {
@@ -11,14 +16,50 @@ class Gallery extends StatefulWidget {
 }
 
 class _GalleryState extends State<Gallery> {
-  Widget item(String path, double width) {
+  void launchInsta(String url) async {
+    if (!await launch(
+      url,
+      forceSafariVC: false,
+      forceWebView: false,
+      headers: <String, String>{'my_header_key': 'my_header_value'},
+    )) {
+      throw 'Could not launch $url';
+    }
+  }
+
+  Widget carouselItem(FeedItem item, double width) {
     return ClipRRect(
       borderRadius: BorderRadius.circular(width / 60),
-      child: Image.asset(
-        path,
-        width: width < 900 ? width * 9 / 16 : 900,
-        height: width < 900 ? width / 16 * 9 : 506,
-        fit: BoxFit.cover,
+      child: GestureDetector(
+        onTap: () => launchInsta(item.instaUrl),
+        child: Stack(
+          children: [
+            Image.network(
+              item.imageUrl,
+              width: width,
+              height: width / 3,
+              fit: BoxFit.cover,
+            ),
+            Positioned(
+              bottom: 0,
+              child: Container(
+                color: Colors.black26,
+                width: width / 2,
+                height: width / 15,
+                child: Center(
+                  child: Text(
+                    item.title,
+                    style: TextStyle(
+                      fontFamily: 'BodyFont',
+                      color: Pallet.whiteText,
+                      fontSize: K.adaptiveWidth(width, 35),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -35,35 +76,31 @@ class _GalleryState extends State<Gallery> {
           child: Container(
             //width: width < 900 ? width : 900,
             width: width,
-            height: width < 900 ? width / 3 : width / 3,
-            child: CarouselSlider(
-              options: CarouselOptions(
-                viewportFraction: 0.5,
-                aspectRatio: 1,
-                enlargeCenterPage: true,
-                scrollDirection: Axis.horizontal,
-                autoPlay: true,
-                pageSnapping: true,
-                pauseAutoPlayOnTouch: true,
-              ),
-              items: [
-                item('images/01.jpg', width),
-                item('images/02.jpg', width),
-                item('images/03.jpg', width),
-                item('images/04.jpg', width),
-                item('images/05.jpg', width),
-                item('images/06.jpg', width),
-                item('images/07.jpg', width),
-                item('images/08.jpg', width),
-                item('images/10.jpg', width),
-                item('images/11.jpg', width),
-                item('images/12.jpg', width),
-                item('images/13.jpg', width),
-                item('images/14.jpg', width),
-                item('images/15.jpg', width),
-                item('images/16.jpg', width),
-              ],
-            ),
+            height: width / 3,
+            child: StreamBuilder<List<FeedItem>>(
+                stream: DatabaseHelper.feedItems,
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    List<Widget> carouselItems = [];
+                    for (int i = 0; i < snapshot.data!.length; i++) {
+                      carouselItems.add(carouselItem(snapshot.data![i], width));
+                    }
+                    return CarouselSlider(
+                      options: CarouselOptions(
+                        viewportFraction: 0.5,
+                        aspectRatio: 1,
+                        enlargeCenterPage: true,
+                        scrollDirection: Axis.horizontal,
+                        autoPlay: true,
+                        pageSnapping: true,
+                        pauseAutoPlayOnTouch: true,
+                      ),
+                      items: carouselItems,
+                    );
+                  } else {
+                    return Container(child: CircularProgressIndicator());
+                  }
+                }),
           ),
         ),
       ],

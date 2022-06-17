@@ -1,20 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ktc/constants/k_colors.dart';
 import 'dart:math' as math;
-
-import '../../resources/constants.dart';
 
 class CollapsableAppBar extends StatelessWidget {
   const CollapsableAppBar();
 
-  final String title = 'Koala-Tea Cakes';
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
     return SliverAppBar(
       toolbarHeight: width > 900 ? 120 : width / 10,
       elevation: 2.0,
-      shadowColor: kAccentColor,
+      shadowColor: Pallet.accent,
       backgroundColor: Colors.black,
       expandedHeight: width > 900 ? 400 : width / 9 * 3,
       collapsedHeight: width > 900 ? 120 : width / 10,

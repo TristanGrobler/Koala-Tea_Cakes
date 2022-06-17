@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ktc/category_list_page/0_category_screen.dart';
+import 'package:flutter/services.dart';
+import 'package:ktc/constants/k_strings.dart';
 
-import '../resources/constants.dart';
+import '../constants/k_colors.dart';
 import '1_appbar/colapsable_app_bar.dart';
 import '2_about/about.dart';
 import '3_gallery/gallery.dart';
@@ -18,10 +19,16 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setApplicationSwitcherDescription(
+        ApplicationSwitcherDescription(
+      label: '${Labels.titleText}',
+      primaryColor: Theme.of(context).primaryColor.value,
+    ));
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
-        color: kSecondaryColor.withOpacity(0.2),
+        color: Pallet.secondary.withOpacity(0.2),
         child: NestedScrollView(
           headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {
             return <Widget>[

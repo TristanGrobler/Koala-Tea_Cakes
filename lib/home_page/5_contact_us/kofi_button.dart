@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:ktc/resources/constants.dart';
+
+import '../../constants/k_colors.dart';
 
 class KofiButton extends StatelessWidget {
   KofiButton({required this.width, required this.onTap});
@@ -27,7 +28,7 @@ class KofiButton extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(8.0),
-            color: kSecondaryColor,
+            color: Pallet.secondary,
           ),
           width: getSize(width),
           height: getSize(width),
@@ -38,7 +39,7 @@ class KofiButton extends StatelessWidget {
                 'images/kofi.svg',
                 fit: BoxFit.fitWidth,
                 width: getSize(width),
-                color: kAccentColor,
+                color: Pallet.accent,
               ),
             ),
           ),

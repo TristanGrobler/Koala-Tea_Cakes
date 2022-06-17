@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_custom_clippers/flutter_custom_clippers.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:ktc/resources/constants.dart';
-import 'package:ktc/resources/title_widget.dart';
+import 'package:ktc/constants/k_colors.dart';
 
 class CakesCategory extends StatelessWidget {
   const CakesCategory({Key? key}) : super(key: key);
@@ -28,14 +27,14 @@ class CakesCategory extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.all(Radius.circular(20.0)),
                   child: Container(
-                    color: kSecondaryColor.withOpacity(0.7),
+                    color: Pallet.secondary.withOpacity(0.7),
                     child: Column(
                       children: [
                         ClipPath(
                           clipper: WaveClipperTwo(flip: true),
                           child: Container(
                             width: width < 900 ? width : 900,
-                            height: (((index + 1) % 2 + 1) * 2) * 200,
+                            height: (((index + 1) % 3 + 1) * 2) * 100,
                             child: ShaderMask(
                               shaderCallback: (rect) {
                                 return LinearGradient(
