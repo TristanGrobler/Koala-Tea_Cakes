@@ -5,8 +5,8 @@ import 'package:ktc/database/database_helper.dart';
 import 'package:ktc/models/m_feed_item.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../constants/k_constants.dart';
-import '../../resources/title_widget.dart';
+import '../constants/k_constants.dart';
+import '../resources/w_title_widget.dart';
 
 class Gallery extends StatefulWidget {
   const Gallery({Key? key}) : super(key: key);
@@ -98,7 +98,9 @@ class _GalleryState extends State<Gallery> {
                       items: carouselItems,
                     );
                   } else {
-                    return Container(child: CircularProgressIndicator());
+                    return Container(
+                        child:
+                            const Center(child: CircularProgressIndicator()));
                   }
                 }),
           ),

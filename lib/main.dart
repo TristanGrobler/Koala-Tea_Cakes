@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:ktc/home_page/0_home_screen.dart';
+import 'package:ktc/home_page/s_home_screen.dart';
 
 import 'constants/k_colors.dart';
 import 'constants/k_firebase_options.dart';

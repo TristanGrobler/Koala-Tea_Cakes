@@ -20,7 +20,7 @@ class StoreItem {
 
   String get id => _id;
 
-  String get name => _title;
+  String get title => _title;
 
   String get cost => _cost;
 

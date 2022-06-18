@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:ktc/constants/k_strings.dart';
+import 'package:ktc/home_page/w_contact_us.dart';
 
 import '../constants/k_colors.dart';
-import '1_appbar/colapsable_app_bar.dart';
-import '2_about/about.dart';
-import '3_gallery/gallery.dart';
-import '4_categories/categories.dart';
-import '5_contact_us/contact_us.dart';
+import '../resources/w_colapsable_app_bar.dart';
+import 'w_about.dart';
+import 'w_gallery.dart';
+import 'w_categories.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ktc/home_page/w_category_button.dart';
 
-import '../../navigation/k_routes.dart';
-import '../../resources/title_widget.dart';
-import 'category_button.dart';
+import '../navigation/k_routes.dart';
+import '../resources/w_title_widget.dart';
 
 class Categories extends StatelessWidget {
   const Categories({Key? key}) : super(key: key);

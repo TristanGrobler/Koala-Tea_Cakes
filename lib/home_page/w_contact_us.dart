@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../resources/title_widget.dart';
-import 'contact_button.dart';
-import 'kofi_button.dart';
+import '../../resources/w_title_widget.dart';
+import 'w_contact_button.dart';
+import 'w_kofi_button.dart';
 
 class ContactUs extends StatelessWidget {
   const ContactUs({Key? key}) : super(key: key);

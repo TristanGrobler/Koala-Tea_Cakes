@@ -1,7 +1,7 @@
-import 'package:ktc/category_list_page/0_category_screen.dart';
-import 'package:ktc/contact_us_page/contact_us_screen.dart';
+import 'package:ktc/category_list_page/s_category_screen.dart';
+import 'package:ktc/contact_us_page/s_contact_us_screen.dart';
 
-import '../home_page/0_home_screen.dart';
+import '../home_page/s_home_screen.dart';
 import 'k_routes.dart';
 
 import 'package:flutter/material.dart';
@@ -21,39 +21,39 @@ class RouteConfig {
     ),
     NavPath(
       r'^' + Routes.cakes,
-      (context, match) => const CategoryScreen(
-          //route: Routes.earrings,
-          ),
+      (context, match) => CategoryScreen(
+        route: Routes.cakes,
+      ),
     ),
     NavPath(
       r'^' + Routes.cupCakes,
-      (context, match) => const CategoryScreen(
-          //route: Routes.earrings,
-          ),
+      (context, match) => CategoryScreen(
+        route: Routes.cupCakes,
+      ),
     ),
     NavPath(
       r'^' + Routes.cakePops,
-      (context, match) => const CategoryScreen(
-          //route: Routes.earrings,
-          ),
+      (context, match) => CategoryScreen(
+        route: Routes.cakePops,
+      ),
     ),
     NavPath(
       r'^' + Routes.cookies,
-      (context, match) => const CategoryScreen(
-          //route: Routes.earrings,
-          ),
+      (context, match) => CategoryScreen(
+        route: Routes.cookies,
+      ),
     ),
     NavPath(
       r'^' + Routes.other,
-      (context, match) => const CategoryScreen(
-          //route: Routes.earrings,
-          ),
+      (context, match) => CategoryScreen(
+        route: Routes.other,
+      ),
     ),
     NavPath(
       r'^' + Routes.healthRange,
-      (context, match) => const CategoryScreen(
-          //route: Routes.earrings,
-          ),
+      (context, match) => CategoryScreen(
+        route: Routes.healthRange,
+      ),
     ),
     NavPath(
       r'^' + Routes.contactUs,
